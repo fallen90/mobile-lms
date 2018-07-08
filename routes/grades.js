@@ -1,5 +1,6 @@
 const api = require('express').Router();
 const { grades, students } = require('../lib/database');
+const _ = require('lodash');
 
 /** Update or Add Grades **/
 api.post('/students/:id/grades', (req, res) => {
@@ -11,7 +12,25 @@ api.post('/students/:id/grades', (req, res) => {
     	//check if grades already exists
     	const _ifGradeExists = grades.find({ student_id }).size().value();
 		//add grades to user
-		const grades_data = (_ifGradeExists) ? grades.findOne({ student_id }).assign(Object.assign(data, { modified_at : (new Date).toISOString() })).write() : grades.insert(Object.assign(data, { created_at : (new Date).toISOString() })).write();
+		// const grades_data = (_ifGradeExists) ? grades.findOne({ student_id }).assign(Object.assign(data, { modified_at : (new Date).toISOString() })).write() : grades.insert(Object.assign(data, { created_at : (new Date).toISOString() })).write();
+		const grades_data = grades.findOne({ student_id }).assign(Object.assign(data, { modified_at : (new Date).toISOString() })).write()
+		
+		const received_keys = Object.keys(data);
+		const saved_data_keys = Object.keys(grades_data);
+		const default_keys = ['id', 'created_at','modified_at','student_id'];
+
+		const key_diff = _.difference(saved_data_keys, received_keys).filter(key => {
+			return !default_keys.includes(key);
+		});
+
+		if(key_diff.length >= 1){
+			key_diff.forEach(key => {
+				delete grades_data[key];
+			});
+
+			grades.find({ student_id }).set(grades_data).write();
+		}
+
 		return res.status(201).json({
     		status : 'success',
     		message : 'grades posted',
