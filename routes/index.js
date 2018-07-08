@@ -2,5 +2,6 @@ const login = require('./login');
 const attendance = require('./attendance');
 const students = require('./students');
 const grades = require('./grades');
+const database = require('./database');
 
-module.exports = { login, attendance, students, grades };
+module.exports = { login, attendance, students, grades, database};
