@@ -18,11 +18,11 @@ All of this within the classroom lang so they need to connect to the teacher to 
 ## Api
 
 ### Students
-- `POST.  /students` - Create student details
+- `POST  /students` - Create student details
 - `GET    /students` - Get list of students
 - `GET    /students/<student_id>` - Get student info
-- `PUT    /student/<student_id>` - Update student info
-- `DELETE /student/<student_id>` - Delete student
+- `PUT    /students/<student_id>` - Update student info
+- `DELETE /students/<student_id>` - Delete student
 
 ### Grades
 - `POST   /students/<student_id>/grades` - Add/Edit grades for student
