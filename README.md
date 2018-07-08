@@ -13,4 +13,25 @@ All of this within the classroom lang so they need to connect to the teacher to 
 ## Modules Done
 
 - Students CRUD with login
-- partial database backup
+- full database backup and restore
+
+## Api
+
+### Students
+- `POST.  /students` - Create student details
+- `GET    /students` - Get list of students
+- `GET    /students/<student_id>` - Get student info
+- `PUT    /student/<student_id>` - Update student info
+- `DELETE /student/<student_id>` - Delete student
+
+### Grades
+- `POST   /students/<student_id>/grades` - Add/Edit grades for student
+- `DELETE /students/<student_id>/grades` - Clear grades
+- `GET    /students/<student_id>/grades` - Get grades for student
+
+
+### Backup and Restore
+- `GET /database/sync` - Sync local datastore with remote
+- `GET /database/backup` - Start backup
+- `GET /database/restore/<restore_point_id>` - Restore databse state from this restore point
+- `GET /database/restore-points` - Get restore points
