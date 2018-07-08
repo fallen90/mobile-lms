@@ -9,3 +9,8 @@ Teacher will open the module and connected students may ask questions anonymousl
 5 reports(only for teacher)
 Export to excel ng records nila(attendance, scores)
 All of this within the classroom lang so they need to connect to the teacher to access the modules.
+
+## Modules Done
+
+- Students CRUD with login
+- partial database backup
