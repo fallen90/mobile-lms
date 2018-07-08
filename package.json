@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lodash-id": "^0.14.0",
+    "lowdb": "^1.0.0",
+    "request": "^2.87.0"
+  },
+  "name": "mobileLMS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}

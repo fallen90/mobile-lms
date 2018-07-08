@@ -1,0 +1,15 @@
+{
+  "attendance": [],
+  "students": [
+    {
+      "first_name": "Jasper",
+      "last_name": "Cinatad",
+      "email": "jasper@jasper.comx",
+      "username": "jasper90",
+      "password": "jasper90",
+      "created_at": "2018-07-07T18:04:06.551Z",
+      "modified_at": "2018-07-07T18:07:41.855Z",
+      "id": "5a2fdb1d-690f-41e7-a484-c99afe56666e"
+    }
+  ]
+}
