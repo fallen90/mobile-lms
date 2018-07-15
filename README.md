@@ -35,3 +35,69 @@ All of this within the classroom lang so they need to connect to the teacher to 
 - `GET /database/backup` - Start backup
 - `GET /database/restore/<restore_point_id>` - Restore databse state from this restore point
 - `GET /database/restore-points` - Get restore points
+
+
+
+```
+API
+
+Attendance
+
+Teacher
+- Check attendance
+	- params:
+		- date (or wag na date? Server timeStamp na agad)
+		- password
+
+Student
+- Confirm attendance
+	- params:
+		- studentId
+		- password
+		- uuid (unique id of device)
+
+Quiz
+
+Teacher
+
+- Create quiz
+	- params:
+		- quiz name
+		- list of questions
+			- questions:
+			{
+				"question",
+				"optionA",
+				"optionB",
+				"optionC",
+				"optionD",
+				"answerIndex" : (0 - A, 1 - B, 2 - C, 3 - D),
+				"timeLimit" : seconds
+			}
+
+- Get all Quizzes
+	- return:
+		- List of quiz
+
+Student
+- Get all quizzes
+	- return
+	{
+		"quizId",
+		"quizName",
+		"quizTaken" : true or false? Flag to know if quiz has already been taken
+		"noOfItems" : number of items of quiz
+		if quiz taken? display score?
+	}
+
+- Answer quiz
+	- request:
+		{
+			correctAnswers: "",
+			List of answers[
+			{
+				"answerIndex", -1 if no answer?
+				"timeConsumed"
+			}]
+		}
+```
