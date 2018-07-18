@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const busboy = require('connect-busboy'); ;
 const { login, students, grades, database, files } = require('./routes');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(busboy());
 
 //routes
 app.use(login);
