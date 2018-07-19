@@ -1,7 +1,7 @@
 const api = require('express').Router();
 const { quizzes } = require('../lib/database');
 
-api.post('/createQuiz', (req, res) => {
+api.post('/teacher/createQuiz', (req, res) => {
 	const teacher_id = req.query.teacher_id;
 	console.log(teacher_id);
 	const data = Object.assign(req.body || {}, { teacher_id });
@@ -15,7 +15,7 @@ api.post('/createQuiz', (req, res) => {
 	});
 });
 
-api.get('/listQuizzes', (req, res) => {
+api.get('/teacher/listQuizzes', (req, res) => {
 	const teacher_id = req.query.teacher_id;
 	const _q = quizzes.filter(item => item.teacher_id == teacher_id).value();
 	return res.send(_q);

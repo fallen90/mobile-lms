@@ -45,7 +45,7 @@ api.get('/students', (req, res) => {
 	return res.status(200).json(student_data);
 });
 
-api.get('/students/:id', (req, res) => {
+api.get('/student/:id', (req, res) => {
 	const params = req.params || {};
 
 	if(params.id){
@@ -62,7 +62,7 @@ api.get('/students/:id', (req, res) => {
 	}
 });
 
-api.put('/students/:id', (req, res) => {
+api.put('/student/:id', (req, res) => {
 	const params = req.params || {};
 	const body = Object.assign(req.body || {}, { modified_at : (new Date).toISOString() });
 
@@ -89,7 +89,7 @@ api.put('/students/:id', (req, res) => {
 	}
 });
 
-api.delete('/students/:id', (req, res) => {
+api.delete('/student/:id', (req, res) => {
 	const params = req.params || {};
 
 	if(params.id){
@@ -106,6 +106,12 @@ api.delete('/students/:id', (req, res) => {
 			});
 		}
 	}
+});
+
+
+
+api.get('/student/:id/quizzes', (req, res) => {
+	//get quiz history for student
 });
 
 

@@ -20,9 +20,9 @@ All of this within the classroom lang so they need to connect to the teacher to 
 ### Students
 - `POST  /students` - Create student details
 - `GET    /students` - Get list of students
-- `GET    /students/<student_id>` - Get student info
-- `PUT    /students/<student_id>` - Update student info
-- `DELETE /students/<student_id>` - Delete student
+- `GET    /student/<student_id>` - Get student info
+- `PUT    /student/<student_id>` - Update student info
+- `DELETE /student/<student_id>` - Delete student
 
 ### Grades
 - `POST   /students/<student_id>/grades` - Add/Edit grades for student
@@ -37,10 +37,15 @@ All of this within the classroom lang so they need to connect to the teacher to 
 - `GET /database/restore-points` - Get restore points
 
 
-### File upload
+### File upload (multipart/form-data)
 - `GET /files ` - Lists all files
 - `GET /files/:id` - Download file by id
 - `POST /upload` - Upload file
+
+### Quiz
+- `POST /teacher/createQuiz?teacher_id=<teacher_id>` - upload quiz data ( manage your own )
+- `GET /teacher/listQuizzes?teacher_id=<teacher_id>` - get all quiz data stored
+
 
 ```
 API
@@ -65,6 +70,8 @@ Quiz
 Teacher   
 
 - Create quiz
+	- query :
+		- teacher : 'teacher id as query params'
 	- params:
 		- quiz name
 		- list of questions
