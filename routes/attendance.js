@@ -1,6 +1,10 @@
 const api = require('express').Router();
 
-api.post('/attendance', (req, res) => {
+api.post('/createAttendance', (req, res) => {
+	
+});
+
+api.post('/confirmAttendance', (req, res) => {
 	
 });
 

@@ -37,6 +37,10 @@ All of this within the classroom lang so they need to connect to the teacher to 
 - `GET /database/restore-points` - Get restore points
 
 
+### File upload
+- `GET /files ` - Lists all files
+- `GET /files/:id` - Download file by id
+- `POST /upload` - Upload file
 
 ```
 API
@@ -58,7 +62,7 @@ Student
 
 Quiz
 
-Teacher
+Teacher   
 
 - Create quiz
 	- params:
@@ -74,6 +78,20 @@ Teacher
 				"answerIndex" : (0 - A, 1 - B, 2 - C, 3 - D),
 				"timeLimit" : seconds
 			}
+
+	- params : 
+		- name (string) : quiz name
+		- questions (array of Object): questions array
+			- text (string): question
+			- options (array): choices for the question
+				- { "a" : "option 1" }, { "b" : "option 2" } : sample
+			- timeLimit : seconds
+			- anwser : key or index on options
+	- return : 
+		- status 
+		- message
+		- data : return newly created quiz
+
 
 - Get all Quizzes
 	- return:
