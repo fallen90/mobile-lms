@@ -24,6 +24,18 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
+app.use(function (err, req, res, next) {
+	if(err){
+		console.error(err.stack)
+	  	res.status(500).send({
+	  		status : 'error',
+	  		message : 'Something broke!',
+	  		error : err.stack
+	  	});
+	}
+  	next();
+});
+
 app.listen(8080, err => {
     if (!err) console.log('Server started http://0.0.0.0:8080');
 });
